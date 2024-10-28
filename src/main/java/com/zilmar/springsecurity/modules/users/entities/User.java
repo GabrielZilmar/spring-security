@@ -1,5 +1,6 @@
 package com.zilmar.springsecurity.modules.users.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.zilmar.springsecurity.modules.roles.entities.Role;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -28,6 +29,7 @@ public class User implements Serializable {
     @Column(nullable = false, unique = true)
     private String username;
 
+    @JsonIgnore
     private String password;
 
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
